@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import pizzaImage from '../../img/pizza.png';
 import carroImage from '../../img/carrito-de-compras.png';
 import { useAppContext } from '../../context/PizzaContext';
+import './navStyles.css';
 
 export default function PizzaNavbar() {
     const { cart, calculateTotalPrice } = useAppContext();
@@ -18,7 +19,7 @@ export default function PizzaNavbar() {
             <Container>
                 <div className="d-flex justify-content-between align-items-center w-100">
                     <div className="d-flex align-items-center">
-                        <NavLink to="/" className="nav-link text-light" style={{ fontSize: '24px' }}>
+                        <NavLink to="/" className="nav-link text-light text-link" style={{ fontSize: '24px' }}>
                             <img
                                 src={pizzaImage}
                                 alt="Pizza"
@@ -28,13 +29,15 @@ export default function PizzaNavbar() {
                         </NavLink>
                     </div>
                     <div className="d-flex">
-                        <NavLink to="/carrito" className="nav-link text-light" style={{ fontSize: '30px' }}>
+                        <NavLink to="/carrito" className="nav-link text-light cart-link" style={{ fontSize: '30px' }}>
                             <img
                                 src={carroImage}
                                 alt="carro"
                                 style={{ width: '35px', height: '35px', marginBottom: '10px' }}
                             />
-                            {cart.length > 0 && <span className="cart-price">{`${formatPrice(calculateTotalPrice())}`}</span>}
+                            <span className="cart-text">
+                                {cart.length > 0 && `${formatPrice(calculateTotalPrice())}`}
+                            </span>
                         </NavLink>
                     </div>
                 </div>
@@ -42,4 +45,3 @@ export default function PizzaNavbar() {
         </div>
     );
 }
-
