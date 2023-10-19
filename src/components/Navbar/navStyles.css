@@ -1,0 +1,7 @@
+/*__Diseños__ */
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
